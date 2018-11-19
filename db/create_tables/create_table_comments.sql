@@ -1,0 +1,6 @@
+CREATE TABLE Comments(
+id SERIAL PRIMARY KEY,
+postid INTEGER,
+text VARCHAR(500),
+userid INTEGER
+);
