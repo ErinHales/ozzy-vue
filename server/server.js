@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
 const cloudinary = require('cloudinary');
+const bcrypt = require("bcrypt-nodejs")
 require('dotenv').config();
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 // app.use(express.static(__dirname+'/../build'));
 
 // controllers
-const authControllers = require('./controllers/auth-controllers');
+const loginCntrl = require("./controllers/login_controller");
 const postControllers = require('./controllers/post-controllers');
 const userControllers = require('./controllers/users-controllers');
 const careControllers = require('./controllers/care-controllers');
@@ -39,9 +40,9 @@ massive(CONNECTION_STRING).then(function(db) {
 })
 
 // auth controllers
-app.post('/api/logout', authControllers.logout);
-app.get('/api/user-data', authControllers.userData);
-app.get('/api/secure-data', authControllers.checkLoggedIn, authControllers.secureUserData);
+app.post('/api/newuser', (req, res) => loginCntrl.signUp(req, res, bcrypt))
+app.get('/api/user/:email/:password', (req, res) => loginCntrl.login(req, res, bcrypt))
+app.put('/api/logout', loginCntrl.logout)
 
 // post controllers
 app.get('/api/posts', postControllers.getPosts);

@@ -1,113 +1,92 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-  </div>
+  <v-container id="welcome">
+    <img src="http://i67.tinypic.com/33lm8g4.jpg" alt="" />
+    <div class="getStarted">
+      <h1>Ozzy</h1>
+      <router-link to="/signup" class="link">Get Started</router-link>
+    </div>
+  </v-container>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  name: 'Welcome'
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<style>
+@import url('https://fonts.googleapis.com/css?family=Galada|Lato');
+
+#welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #b259b6, #8459b6);
+  width: 100vw;
+  height: 100vh;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+#welcome img {
+  margin-top: 40px;
+  width: 100%;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+#welcome h1 {
+  font-family: "Galada", cursive;
+  font-size: 50px;
+  color: white;
+  margin: 0px;
+  font-weight: lighter;
+  text-shadow: 5px 5px 5px rgba(0,0,0,0.25);
 }
-a {
-  color: #42b983;
+#welcome .link {
+  margin: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #592f6a;
+  padding: 15px;
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+#welcome .getStarted {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 250px) {
+  #welcome img {
+    width: 250px;
+  }
+}
+
+@media (min-width: 600px) {
+  #welcome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #welcome img {
+    margin-top: 0px;
+    width: 400px;
+  }
+  #welcome .getStarted {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  #welcome h1 {
+    font-size: 96px;
+  }
+  #welcome img {
+    width: 500px;
+  }
+  #welcome .link {
+    font-size: 30px;
+  }
 }
 </style>

@@ -3,7 +3,7 @@
     <img src="http://i67.tinypic.com/33lm8g4.jpg" alt="" />
     <div class="getStarted">
       <h1>Ozzy</h1>
-      <router-link to="/setup" class="link">Get Started</router-link>
+      <router-link to="/signup" class="link">Get Started</router-link>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Galada');
+@import url('https://fonts.googleapis.com/css?family=Galada|Lato');
 
 #welcome {
   display: flex;
@@ -23,17 +23,17 @@ export default {
   justify-content: center;
   align-content: space-around;
   align-items: center;
-  background-color: #9B59B6;
+  background-image: linear-gradient(to bottom right, #b259b6, #8459b6);
   width: 100vw;
   height: 100vh;
 }
 
-img {
+#welcome img {
   margin-top: 40px;
   width: 100%;
 }
 
-h1 {
+#welcome h1 {
   font-family: "Galada", cursive;
   font-size: 50px;
   color: white;
@@ -41,14 +41,17 @@ h1 {
   font-weight: lighter;
   text-shadow: 5px 5px 5px rgba(0,0,0,0.25);
 }
-.link {
-  margin-bottom: 20px;
-  margin-top: -15px;
-  font-size: 15px;
-  margin-left: 5px;
+#welcome .link {
+  margin: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #592f6a;
+  padding: 15px;
+  color: white;
+  font-family: "Lato", sans-serif;
 }
 
-.getStarted {
+#welcome .getStarted {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,23 +69,23 @@ h1 {
     flex-direction: row;
     justify-content: center;
   }
-  img {
+  #welcome img {
     margin-top: 0px;
     width: 400px;
   }
-  .getStarted {
+  #welcome .getStarted {
     margin-left: 20px;
   }
 }
 
 @media (min-width: 1000px) {
-  h1 {
+  #welcome h1 {
     font-size: 96px;
   }
-  img {
+  #welcome img {
     width: 500px;
   }
-  .link {
+  #welcome .link {
     font-size: 30px;
   }
 }
