@@ -1,22 +1,33 @@
 <template>
   <div>
+    <div className="parentQ3">
+    <h3>Update Your Profile Picture</h3>
+    <!-- <Dropzone onDrop={this.onDrop} className='dropzone setProfilePic' multiple={false}>
+      <div className="overlayContainer">
+          <img src={this.state.userPic} alt="upload" className="postImg introImg" />
+          <div className="middle">
+          <div className="text">Drag or click to select photo</div>
+        </div>
+      </div>
+    </Dropzone> -->
+    </div>
     <v-btn
-      color="primary"
-      @click="nextStep"
+      color="purple"
+      @click="nextStep(5)"
     >
-      Continue
+      Next
     </v-btn>
 
-    <v-btn flat>Cancel</v-btn>
+    <v-btn flat @click="nextStep(3)">Back</v-btn>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'S1',
+  name: 'ParentQ3',
   methods: {
-    nextStep () {
-      this.$emit('move', 5)
+    nextStep (num) {
+      this.$emit('move', num)
     }
   }
 }

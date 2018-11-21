@@ -1,11 +1,11 @@
 <template>
-  <v-stepper v-model="e1">
+  <v-stepper v-model="el" id="setup">
     <v-stepper-header>
-      <v-stepper-step :complete="e1 > 1" step="1">Name of step 1</v-stepper-step>
+      <v-stepper-step step="1">Name of step 1</v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step :complete="e1 > 2" step="2">Name of step 2</v-stepper-step>
+      <v-stepper-step step="2">Name of step 2</v-stepper-step>
 
       <v-divider></v-divider>
 
@@ -69,25 +69,23 @@
 </template>
 
 <script>
+import S1 from './S1'
+import S2 from './S2'
+import S3 from './S3'
+import S4 from './S4'
+import S5 from './S5'
+import S6 from './S6'
+import S7 from './S7'
+import S8 from './S8'
+
 export default {
   name: 'Setup',
-  components: {
-    S1: import('./S1.vue'),
-    S2: import('./S2.vue'),
-    S3: import('./S3.vue'),
-    S4: import('./S4.vue'),
-    S5: import('./S5.vue'),
-    S6: import('./S2.vue'),
-    S7: import('./S7.vue'),
-    S8: import('./S8.vue')
-  },
   data () {
     return {
-      el: 1,
-      loading: false,
-      error: ''
+      el: 0
     }
   },
+  components: { S1, S2, S3, S4, S5, S6, S7, S8 },
   methods: {
     setStepper (step) {
       this.el = step
@@ -97,5 +95,9 @@ export default {
 </script>
 
 <style>
-
+#setup {
+  background-image: linear-gradient(to bottom right, #b259b6, #8459b6);
+  height: calc(100vh - 30px);
+  overflow: hidden;
+}
 </style>

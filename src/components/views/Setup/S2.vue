@@ -1,22 +1,27 @@
 <template>
   <div>
+    <div>
+      <h3>Are you interested <br/>in finding child care?</h3>
+      <button>Yes</button>
+      <button>No</button>
+    </div>
     <v-btn
-      color="primary"
-      @click="nextStep"
+      color="purple"
+      @click="nextStep(3)"
     >
-      Continue
+      Next
     </v-btn>
 
-    <v-btn flat>Cancel</v-btn>
+    <v-btn flat @click="nextStep(1)">Back</v-btn>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'S1',
+  name: 'ParentQ',
   methods: {
-    nextStep () {
-      this.$emit('move', 3)
+    nextStep (num) {
+      this.$emit('move', num)
     }
   }
 }

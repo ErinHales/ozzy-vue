@@ -1,22 +1,34 @@
 <template>
   <div>
+    <div className="parentQ2">
+      <h3>What channels would you like to see in your newsfeed?</h3>
+      <v-btn>Just Moms</v-btn>
+      <v-btn>Just Dads</v-btn>
+      <v-btn>Expecting</v-btn>
+      <v-btn>Babies</v-btn>
+      <v-btn>Toddlers</v-btn>
+      <v-btn>Elementary</v-btn>
+      <v-btn>Pre-Teen</v-btn>
+      <v-btn>Teen</v-btn>
+      <v-btn>All Grown Up</v-btn>
+    </div>
     <v-btn
-      color="primary"
-      @click="nextStep"
+      color="purple"
+      @click="nextStep(4)"
     >
-      Continue
+      Next
     </v-btn>
 
-    <v-btn flat>Cancel</v-btn>
+    <v-btn flat @click="nextStep(2)">Back</v-btn>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'S1',
+  name: 'ParentQ2',
   methods: {
-    nextStep () {
-      this.$emit('move', 4)
+    nextStep (num) {
+      this.$emit('move', num)
     }
   }
 }

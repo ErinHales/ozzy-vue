@@ -9,3 +9,10 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+.application-wrap {
+  height: 100vh;
+  overflow: hidden;
+}
+</style>

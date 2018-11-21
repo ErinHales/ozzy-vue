@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <div id="step1">
+    <h3>Are you a:</h3>
+    <v-btn>Parent</v-btn>
+    <v-btn>Care Provider</v-btn>
     <v-btn
-      color="primary"
+      color="purple"
       @click="nextStep"
     >
-      Continue
+      Next
     </v-btn>
-
-    <v-btn flat>Cancel</v-btn>
   </div>
 </template>
 
@@ -23,5 +24,14 @@ export default {
 </script>
 
 <style>
-
+#step1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+}
+.v-btn {
+  width: 100%;
+}
 </style>
