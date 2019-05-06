@@ -3,20 +3,22 @@
     <v-layout column>
       <h3>What type of child care provider?</h3>
       <v-select
-        color="black"
+        color="darkstormblue"
         :items="careTypes"
         v-model="response"
         box
       >
       </v-select>
       <v-btn
-        color="rgba(255,255,255,0.3)"
+        class="step5__next"
+        color="darkstormblue"
+        dark
         @click="nextStep(6)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(4)">Back</v-btn>
+      <v-btn flat @click="nextStep(4)" class="step5__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
@@ -49,6 +51,7 @@ export default {
   max-width 500px
   margin auto
   &__next
-    width 150px
-    margin auto
+  &__back
+    width 200px
+    margin 5px auto
 </style>

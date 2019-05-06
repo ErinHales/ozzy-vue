@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Welcome from '../views/Welcome/Welcome.main'
 import SignUp from '../views/Welcome/Welcome.SignUp'
 import Login from '../views/Welcome/Welcome.Login'
 import Setup from '../views/Setup'
+import Loader from '../components/app/loader'
 
 Vue.use(Router)
 
@@ -11,29 +11,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Welcome',
-      component: Welcome,
-      children: [
-        {
-          path: '',
-          component: Login
-        },
-        {
-          path: '/signup',
-          component: SignUp
-        }
-      ]
+      name: 'Loader',
+      component: Loader
     },
-    // {
-    //   path: '/signup',
-    //   name: 'SignUp',
-    //   component: SignUp
-    // },
-    // {
-    //   path: '/login',
-    //   name: 'Login',
-    //   component: Login
-    // },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
     {
       path: '/setup',
       name: 'Setup',

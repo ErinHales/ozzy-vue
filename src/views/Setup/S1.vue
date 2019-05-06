@@ -3,7 +3,7 @@
     <v-layout column>
       <h3>Please select your status</h3>
       <v-select
-        color="black"
+        color="darkstormblue"
         :items="items"
         v-model="status"
         box
@@ -11,7 +11,8 @@
       </v-select>
       <v-btn
         class="step1__next"
-        color="rgba(255,255,255,0.3)"
+        color="darkstormblue"
+        dark
         @click="nextStep"
       >
         Next
@@ -48,6 +49,6 @@ export default {
   max-width 500px
   margin auto
   &__next
-    width 150px
-    margin auto
+    width 200px
+    margin 5px auto
 </style>

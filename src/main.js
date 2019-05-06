@@ -14,7 +14,13 @@ Vue.use(Vuetify, {
   iconfont: 'mdi',
   theme: {
     purple: '#8459b6',
-    pink: '#b259b6'
+    pink: '#b259b6',
+    accent: '#FA8B60',
+    peach: '#FAC8BF',
+    brightblue: '#94FFFC',
+    darkstormblue: '#466675',
+    lightstormblue: '#6A8D9D',
+    gray: '#CCCCCC'
   }
 })
 

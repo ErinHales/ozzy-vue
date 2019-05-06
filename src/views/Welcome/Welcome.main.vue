@@ -1,7 +1,7 @@
 <template>
   <div class="welcome">
     <!-- <Logo :class="{ 'logo--small': appReady }" class="welcome__logo"></Logo> -->
-    <Logo class="welcome__logo logo--small"></Logo>
+    <!-- <Logo class="welcome__logo logo--small"></Logo> -->
     <!-- <transition name="fade" v-if="appReady"> -->
     <router-view></router-view>
     <!-- </transition> -->
@@ -20,16 +20,16 @@ export default {
 
   components: {
     Logo: () => import('../../components/assets/logo')
-  },
-
-  created () {
-    var self = this
-    setTimeout(function () {
-      self.$nextTick(function () {
-        self.appReady = true
-      })
-    }, 1000)
   }
+
+  // created () {
+  //   var self = this
+  //   setTimeout(function () {
+  //     self.$nextTick(function () {
+  //       self.appReady = true
+  //     })
+  //   }, 1000)
+  // }
 }
 </script>
 

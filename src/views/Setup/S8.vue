@@ -2,13 +2,15 @@
   <div class="step8">
     <v-layout column>
       <v-btn
-        color="rgba(255,255,255,0.3)"
+        class="step8__next"
+        color="darkstormblue"
+        dark
         @click="nextStep"
       >
         Continue
       </v-btn>
 
-      <v-btn flat>Cancel</v-btn>
+      <v-btn flat class="step8__back">Cancel</v-btn>
     </v-layout>
   </div>
 </template>
@@ -32,7 +34,8 @@ export default {
   width 90%
   max-width 500px
   margin auto
-  &__next
-    width 150px
-    margin auto
+  &__next,
+  &__back
+    width 200px
+    margin 5px auto
 </style>

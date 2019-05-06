@@ -3,31 +3,33 @@
     <v-layout column>
       <h3>Build your Profile!</h3>
       <v-text-field
-        color="black"
+        color="darkstormblue"
         label="Name"
         v-model="name"
         box
       ></v-text-field>
       <v-textarea
-        color="black"
+        color="darkstormblue"
         label="Tell us a little bit about yourself"
         v-model="bio"
         box
       ></v-textarea>
       <v-textarea
-        color="black"
+        color="darkstormblue"
         label="Summary"
         v-model="header"
         box
       ></v-textarea>
       <v-btn
-        color="rgba(255,255,255,0.3)"
+        class="step6__next"
+        color="darkstormblue"
+        dark
         @click="nextStep(7)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(5)">Back</v-btn>
+      <v-btn flat @click="nextStep(5)" class="step6__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
@@ -60,7 +62,8 @@ export default {
   width 90%
   max-width 500px
   margin auto
-  &__next
-    width 150px
-    margin auto
+  &__next,
+  &__back
+    width 200px
+    margin 5px auto
 </style>

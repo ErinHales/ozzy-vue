@@ -1,45 +1,41 @@
 <template>
-  <div class="signup">
+  <div class="signup fade-in">
     <v-form class="signup__form my-5" @submit.prevent="signup">
       <v-text-field
         class="my-3"
-        color="black"
+        color="#fac8bf"
         type="text"
-        v-model="name"
+        v-model="userData.name"
         placeholder="Name"
         autofocus
-        box
       ></v-text-field>
       <v-text-field
         class="my-3"
-        color="black"
+        color="#fac8bf"
         type="text"
-        v-model="email"
+        v-model="userData.email"
         placeholder="Email"
-        box
       ></v-text-field>
       <v-text-field
         class="my-3"
-        color="black"
+        color="#fac8bf"
         append-icon="remove_red_eye"
         :type="passwordType.first"
-        v-model="password1"
+        v-model="userData.password1"
         placeholder="Password"
-        box
         @click:append="showPasswords('first')"
       ></v-text-field>
       <v-text-field
-        color="black"
+        color="#fac8bf"
         append-icon="remove_red_eye"
         :type="passwordType.second"
-        v-model="password"
-        placeholder="Password"
-        box
+        v-model="userData.password2"
+        placeholder="Confirm Password"
         @click:append="showPasswords('second')"
       ></v-text-field>
       <v-layout justify-space-between>
-        <h5 class="mt-3">Already have an account? <router-link to="/" class="signup__form__link link">Login</router-link></h5>
-        <v-btn type="submit" class="signup__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
+        <h5 class="mt-3">Already have an account? <router-link to="/login" class="signup__form__link">Login</router-link></h5>
+        <v-btn type="submit" color="#fac8bf" class="signup__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
       </v-layout>
     </v-form>
   </div>
@@ -53,11 +49,12 @@ export default {
   name: 'SignUp',
   data () {
     return {
-      name: '',
-      email: '',
-      password1: '',
-      password2: '',
-      modal: false,
+      userData: {
+        name: '',
+        email: '',
+        password1: '',
+        password2: ''
+      },
       validEmail: false,
       rules: {
         required: value => !!value || 'Required.',
@@ -128,15 +125,28 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@keyframes fadeIn
+  from
+    opacity 0
+    top 20px
+  to
+    opacity 1
+    top 0px
+
+.fade-in
+  opacity 0
+  position relative
+  top 20px
+  animation fadeIn 0.5s forwards 1s
+
 .signup
+  display flex
+  justify-content center
+  align-items center
+  height 100vh
   &__form
     width 90%
-    max-width 600px
-    min-width 400px
-    margin auto
+    max-width 400px
     &__link
-      margin 0 5px
-      padding 5px
-      border 1px solid black
       color black
 </style>

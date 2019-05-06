@@ -6,18 +6,21 @@
       <v-select
         v-model="subscribedChannels"
         :items="channels"
+        color="darkstormblue"
         box
         chips
         multiple
       ></v-select>
       <v-btn
-        color="rgba(255,255,255,0.3)"
+        class="step3__next"
+        color="darkstormblue"
+        dark
         @click="nextStep(4)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(2)">Back</v-btn>
+      <v-btn flat @click="nextStep(2)" class="step3__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
@@ -49,7 +52,8 @@ export default {
   width 90%
   max-width 500px
   margin auto
-  &__next
-    width 150px
-    margin auto
+  &__next,
+  &__back
+    width 200px
+    margin 5px auto
 </style>
