@@ -19,8 +19,10 @@
         box
         @click:append="showPassword"
       ></v-text-field>
-      <h5>Don't have an account? <router-link to="/signup" class="login__form__link link">Sign Up</router-link></h5>
-      <button type="submit" class="login__form__submit">LOG IN</button>
+      <v-layout justify-space-between>
+        <h5 class="mt-3">Don't have an account? <router-link to="/signup" class="login__form__link link">Sign Up</router-link></h5>
+        <v-btn type="submit" class="login__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
+      </v-layout>
     </v-form>
   </div>
 </template>
@@ -44,26 +46,28 @@ export default {
       } else {
         this.type = 'password'
       }
+    },
+    login () {
+      console.log('Login attempt')
+      this.$router.push({ path: '/setup' })
+    //   axios.get(`/api/user/${this.email}/${this.password}`).then(response => {
+    //     if (response.data === 'Username does not exist') {
+    //       alert('Email does not exist. Try again or go to sign up page')
+    //     } else if (response.data === 'Password did not match the email') {
+    //       alert('Incorrect password. Try again or go to sign up page.')
+    //     } else {
+    //       this.$store.commit({
+    //         type: 'setUserData',
+    //         data: response.data
+    //       })
+    //       this.$store.commit({
+    //         type: 'toggleLogin',
+    //         toggle: true
+    //       })
+    //       window.location.hash = '#/users'
+    //     }
+    //   })
     }
-  //   login () {
-  //     axios.get(`/api/user/${this.email}/${this.password}`).then(response => {
-  //       if (response.data === 'Username does not exist') {
-  //         alert('Email does not exist. Try again or go to sign up page')
-  //       } else if (response.data === 'Password did not match the email') {
-  //         alert('Incorrect password. Try again or go to sign up page.')
-  //       } else {
-  //         this.$store.commit({
-  //           type: 'setUserData',
-  //           data: response.data
-  //         })
-  //         this.$store.commit({
-  //           type: 'toggleLogin',
-  //           toggle: true
-  //         })
-  //         window.location.hash = '#/users'
-  //       }
-  //     })
-  //   }
   }
 }
 </script>
@@ -81,11 +85,13 @@ export default {
     height auto
   }
 
-.login
+.loading
   opacity 0
   height 0px
   overflow hidden
   animation fade-in 1.5s forwards
+
+.login
   &__form
     width 90%
     max-width 600px
@@ -96,4 +102,6 @@ export default {
       padding 5px
       border 1px solid black
       color black
+    // &__submit
+    //   width 50%
 </style>

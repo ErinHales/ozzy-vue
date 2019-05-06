@@ -18,6 +18,14 @@ export default {
   min-width 100vw
   min-height 100vh
 
+/* * * * *  TRANSITIONS * * * * */
+  .fade-enter-active, .fade-leave-active
+    transition opacity .3s
+
+  .fade-enter, .fade-leave-to
+    opacity 0
+
+/* * * * *  APP STYLE CLASSES * * * * */
 .link
   text-decoration none
 </style>

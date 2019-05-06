@@ -1,12 +1,9 @@
 <template>
   <div class="welcome">
     <Logo :class="{ 'logo--small': appReady }" class="welcome__logo"></Logo>
-    <transition name="fade" v-if="appReady">
-      <router-view></router-view>
-    </transition>
-    <!-- <div v-if="appReady">
-      Hello World
-    </div> -->
+    <!-- <transition name="fade" v-if="appReady"> -->
+    <router-view></router-view>
+    <!-- </transition> -->
   </div>
 </template>
 
