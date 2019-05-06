@@ -1,36 +1,49 @@
 <template>
-  <div>
-    <div className="careProviderQ2">
+  <div class="step6">
+    <v-layout column>
       <h3>Build your Profile!</h3>
-      <div className="tellUs">
-        <h3>Name</h3>
-        <input type="text"/>
-      </div>
-      <div className="tellUs">
-        <h3>Tell us a little bit about yourself</h3>
-        <h5>(1000 characters)</h5>
-      </div>
-      <textarea className="longBio"></textarea>
-      <div className="tellUs">
-        <h3>Summary</h3>
-        <h5>(200 characters)</h5>
-      </div>
-      <textarea className="shortBio"></textarea>
-    </div>
-    <v-btn
-      color="purple"
-      @click="nextStep(7)"
-    >
-      Next
-    </v-btn>
+      <v-text-field
+        color="black"
+        label="Name"
+        v-model="name"
+        box
+      ></v-text-field>
+      <v-textarea
+        color="black"
+        label="Tell us a little bit about yourself"
+        v-model="bio"
+        box
+      ></v-textarea>
+      <v-textarea
+        color="black"
+        label="Summary"
+        v-model="header"
+        box
+      ></v-textarea>
+      <v-btn
+        color="rgba(255,255,255,0.3)"
+        @click="nextStep(7)"
+      >
+        Next
+      </v-btn>
 
-    <v-btn flat @click="nextStep(5)">Back</v-btn>
+      <v-btn flat @click="nextStep(5)">Back</v-btn>
+    </v-layout>
   </div>
 </template>
 
 <script>
 export default {
   name: 'CareProviderQ2',
+
+  data () {
+    return {
+      name: '',
+      bio: '',
+      summary: ''
+    }
+  },
+
   methods: {
     nextStep (num) {
       this.$emit('move', num)
@@ -39,6 +52,15 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="stylus">
+.step6
+  display flex
+  align-items center
+  height calc(100vh - 100px)
+  width 90%
+  max-width 500px
+  margin auto
+  &__next
+    width 150px
+    margin auto
 </style>

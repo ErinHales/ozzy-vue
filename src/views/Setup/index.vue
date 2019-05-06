@@ -1,35 +1,35 @@
 <template>
-  <v-stepper v-model="el" id="setup">
-    <v-stepper-header>
-      <v-stepper-step step="1">Name of step 1</v-stepper-step>
+  <v-stepper v-model="el" id="setup" color="black">
+    <v-stepper-header color="black">
+      <v-stepper-step step="1" :complete="el > 1"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="2">Name of step 2</v-stepper-step>
+      <v-stepper-step step="2" :complete="el > 2"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3">Name of step 3</v-stepper-step>
+      <v-stepper-step step="3" :complete="el > 3"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="4">Name of step 4</v-stepper-step>
+      <v-stepper-step step="4" :complete="el > 4"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="5">Name of step 5</v-stepper-step>
+      <v-stepper-step step="5" :complete="el > 5"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="6">Name of step 6</v-stepper-step>
+      <v-stepper-step step="6" :complete="el > 6"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="7">Name of step 7</v-stepper-step>
+      <v-stepper-step step="7" :complete="el > 7"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="8">Name of step 8</v-stepper-step>
+      <v-stepper-step step="8" :complete="el > 8"></v-stepper-step>
     </v-stepper-header>
 
     <v-stepper-items>
@@ -94,10 +94,12 @@ export default {
 }
 </script>
 
-<style>
-#setup {
-  background-image: linear-gradient(to bottom right, #b259b6, #8459b6);
-  height: calc(100vh - 30px);
-  overflow: hidden;
-}
+<style scoped lang="stylus">
+.v-stepper__step--active
+  .v-stepper__step__step
+    background-color black
+#setup
+  background-image linear-gradient(to bottom right, #b259b6, #8459b6)
+  height 100vh
+  overflow hidden
 </style>

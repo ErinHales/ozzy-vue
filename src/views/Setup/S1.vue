@@ -1,20 +1,36 @@
 <template>
-  <div id="step1">
-    <h3>Are you a:</h3>
-    <v-btn>Parent</v-btn>
-    <v-btn>Care Provider</v-btn>
-    <v-btn
-      color="purple"
-      @click="nextStep"
-    >
-      Next
-    </v-btn>
+  <div class="step1">
+    <v-layout column>
+      <h3>Please select your status</h3>
+      <v-select
+        color="black"
+        :items="items"
+        v-model="status"
+        box
+      >
+      </v-select>
+      <v-btn
+        class="step1__next"
+        color="rgba(255,255,255,0.3)"
+        @click="nextStep"
+      >
+        Next
+      </v-btn>
+    </v-layout>
   </div>
 </template>
 
 <script>
 export default {
   name: 'S1',
+
+  data () {
+    return {
+      items: ['Parent', 'Care Provider'],
+      status: 'Parent'
+    }
+  },
+
   methods: {
     nextStep () {
       this.$emit('move', 2)
@@ -23,15 +39,15 @@ export default {
 }
 </script>
 
-<style>
-#step1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 60vh;
-}
-.v-btn {
-  width: 100%;
-}
+<style scoped lang="stylus">
+.step1
+  display flex
+  align-items center
+  height calc(100vh - 100px)
+  width 90%
+  max-width 500px
+  margin auto
+  &__next
+    width 150px
+    margin auto
 </style>
