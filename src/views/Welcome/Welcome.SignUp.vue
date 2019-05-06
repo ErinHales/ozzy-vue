@@ -23,7 +23,7 @@
         type="text"
         v-model="password2"
         placeholder="Confirm Password">
-      <h5>Already have an account? <router-link to="/login" class="link">Login</router-link></h5>
+      <h5>Already have an account? <router-link to="/" class="link">Login</router-link></h5>
       <button type="submit" class="submit">Create Account</button>
     </form>
   </div>

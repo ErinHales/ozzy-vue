@@ -1,11 +1,12 @@
 <template>
   <div class="welcome">
-    <v-layout justify-center>
-      <Logo class="welcome__logo"></Logo>
-    </v-layout>
-    <transition name="fade">
+    <Logo :class="{ 'logo--small': appReady }" class="welcome__logo"></Logo>
+    <transition name="fade" v-if="appReady">
       <router-view></router-view>
     </transition>
+    <!-- <div v-if="appReady">
+      Hello World
+    </div> -->
   </div>
 </template>
 
@@ -13,8 +14,23 @@
 export default {
   name: 'Welcome',
 
+  data () {
+    return {
+      appReady: false
+    }
+  },
+
   components: {
     Logo: () => import('../../components/assets/logo')
+  },
+
+  created () {
+    var self = this
+    setTimeout(function () {
+      self.$nextTick(function () {
+        self.appReady = true
+      })
+    }, 1000)
   }
 }
 </script>
@@ -22,10 +38,18 @@ export default {
 <style scoped lang="stylus">
 @import url('https://fonts.googleapis.com/css?family=Galada|Lato');
 
+.logo--small
+  width 150px !important
+
 .welcome
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  height 100vh
+  transition all 1s
   &__logo
     width 80%
     max-width 500px
-  &__btn
-    max-width 150px
+    transition all 1s
 </style>

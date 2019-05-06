@@ -17,4 +17,7 @@ export default {
   background-image linear-gradient(to bottom right, #b259b6, #8459b6)
   min-width 100vw
   min-height 100vh
+
+.link
+  text-decoration none
 </style>
