@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <router-view></router-view>
+    <div class="application-wrap">
+      <router-view></router-view>
+    </div>
   </v-app>
 </template>
 
@@ -10,9 +12,9 @@ export default {
 }
 </script>
 
-<style>
-.application-wrap {
-  height: 100vh;
-  overflow: hidden;
-}
+<style lang="stylus">
+.application-wrap
+  background-image linear-gradient(to bottom right, #b259b6, #8459b6)
+  min-width 100vw
+  min-height 100vh
 </style>
