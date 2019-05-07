@@ -11,6 +11,7 @@
           </div>
         </div>
       </Dropzone> -->
+      <Vue-Dropzone :options="dropzoneOptions"></Vue-Dropzone>
       </div>
       <v-btn
         class="step4__next"
@@ -27,8 +28,27 @@
 </template>
 
 <script>
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+
 export default {
   name: 'ParentQ3',
+
+  components: {
+    VueDropzone: vue2Dropzone
+  },
+
+  data: function () {
+    return {
+      dropzoneOptions: {
+        url: 'https://httpbin.org/post',
+        thumbnailWidth: 150,
+        maxFilesize: 0.5,
+        headers: { 'My-Awersome-Header': "header value"}
+      }
+    }
+  },
+
   methods: {
     nextStep (num) {
       this.$emit('move', num)
