@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SignUp from '../views/Welcome/Welcome.SignUp'
-import Login from '../views/Welcome/Welcome.Login'
+import SignUp from '../views/Welcome/SignUp'
+import Login from '../views/Welcome/Login'
 import Setup from '../views/Setup'
 import Loader from '../components/app/loader'
 

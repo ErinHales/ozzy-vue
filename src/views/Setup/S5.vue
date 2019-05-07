@@ -2,13 +2,16 @@
   <div class="step5">
     <v-layout column>
       <h3>What type of child care provider?</h3>
-      <v-select
-        color="darkstormblue"
-        :items="careTypes"
-        v-model="response"
-        box
-      >
-      </v-select>
+      <v-form v-model="valid">
+        <v-select
+          color="darkstormblue"
+          :items="careTypes"
+          :rules="rules"
+          v-model="response"
+          box
+        >
+        </v-select>
+      </v-form>
       <v-btn
         class="step5__next"
         color="darkstormblue"
@@ -29,14 +32,20 @@ export default {
 
   data () {
     return {
+      valid: false,
       careTypes: ['School', 'Day Care', 'Preschool', 'Baby Sitter', 'Nanny'],
-      response: ''
+      response: '',
+      rules: [
+        v => !!v || 'Select an option'
+      ]
     }
   },
 
   methods: {
     nextStep (num) {
-      this.$emit('move', num)
+      if (this.valid) {
+        this.$emit('move', num)
+      }
     }
   }
 }

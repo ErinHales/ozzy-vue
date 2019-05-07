@@ -1,10 +1,11 @@
 <template>
   <div class="signup fade-in">
-    <v-form class="signup__form my-5" @submit.prevent="signup">
+    <v-form class="signup__form my-5" v-model="valid" @submit.prevent="signup">
       <v-text-field
         class="my-3"
         color="#fac8bf"
         type="text"
+        :rules="nameRules"
         v-model="userData.name"
         placeholder="Name"
         autofocus
@@ -13,6 +14,7 @@
         class="my-3"
         color="#fac8bf"
         type="text"
+        :rules="emailRules"
         v-model="userData.email"
         placeholder="Email"
       ></v-text-field>
@@ -21,6 +23,7 @@
         color="#fac8bf"
         append-icon="remove_red_eye"
         :type="passwordType.first"
+        :rules="passwordRules"
         v-model="userData.password1"
         placeholder="Password"
         @click:append="showPasswords('first')"
@@ -29,6 +32,7 @@
         color="#fac8bf"
         append-icon="remove_red_eye"
         :type="passwordType.second"
+        :rules="confirmPasswordRules"
         v-model="userData.password2"
         placeholder="Confirm Password"
         @click:append="showPasswords('second')"
@@ -49,6 +53,7 @@ export default {
   name: 'SignUp',
   data () {
     return {
+      valid: false,
       userData: {
         name: '',
         email: '',
@@ -66,7 +71,24 @@ export default {
       passwordType: {
         first: 'password',
         second: 'password'
-      }
+      },
+      nameRules: [
+        v => !!v || 'Username is required'
+      ],
+      // TODO: Make better email validation
+      // TODO: Check that email is not already in database
+      emailRules: [
+        v => !!v || 'Email is required',
+        v => v.indexOf('@') > -1 || 'Email must be valid'
+      ],
+      passwordRules: [
+        v => !!v || 'Password is required',
+        v => v.length >= 8 || 'Must be at least 8 characters'
+      ],
+      confirmPasswordRules: [
+        v => !!v || 'Confirm Password',
+        v => v === this.userData.password1 || 'Passwords must match'
+      ]
     }
   },
   // watch: {
@@ -88,7 +110,9 @@ export default {
       }
     },
     signup () {
-      this.$router.push({ path: '/setup' })
+      if (this.valid) {
+        this.$router.push({ path: '/setup' })
+      }
       // let userData = {
       //   name: this.name,
       //   email: this.email,

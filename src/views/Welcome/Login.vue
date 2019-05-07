@@ -1,10 +1,11 @@
 <template>
   <div class="login fade-in">
-    <v-form class="login__form my-5" @submit.prevent="login">
+    <v-form class="login__form my-5" v-model="valid" @submit.prevent="login">
       <v-text-field
         class="mb-5"
         color="#fac8bf"
         type="text"
+        :rules="emailRules"
         v-model="email"
         placeholder="Email"
         autofocus
@@ -14,6 +15,7 @@
         color="#fac8bf"
         append-icon="remove_red_eye"
         :type="type"
+        :rules="passwordRules"
         v-model="password"
         placeholder="Password"
         @click:append="showPassword"
@@ -33,9 +35,16 @@ export default {
   name: 'Login',
   data () {
     return {
+      valid: false,
       type: 'password',
       email: '',
-      password: ''
+      password: '',
+      emailRules: [
+        v => !!v || 'Email is required'
+      ],
+      passwordRules: [
+        v => !!v || 'Password is required'
+      ]
     }
   },
 
@@ -57,8 +66,10 @@ export default {
       }
     },
     login () {
-      console.log('Login attempt')
-      this.$router.push({ path: '/setup' })
+      console.log(this.valid)
+      if (this.valid) {
+        this.$router.push({ path: '/setup' })
+      }
       // axios.get(`/api/user/${this.email}/${this.password}`).then(response => {
       //   if (response.data === 'Username does not exist') {
       //     alert('Email does not exist. Try again or go to sign up page')

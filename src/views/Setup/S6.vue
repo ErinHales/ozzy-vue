@@ -2,24 +2,31 @@
   <div class="step6">
     <v-layout column>
       <h3>Build your Profile!</h3>
-      <v-text-field
-        color="darkstormblue"
-        label="Name"
-        v-model="name"
-        box
-      ></v-text-field>
-      <v-textarea
-        color="darkstormblue"
-        label="Tell us a little bit about yourself"
-        v-model="bio"
-        box
-      ></v-textarea>
-      <v-textarea
-        color="darkstormblue"
-        label="Summary"
-        v-model="header"
-        box
-      ></v-textarea>
+      <v-form v-model="valid">
+        <v-text-field
+          color="darkstormblue"
+          label="Name"
+          :rules="nameRules"
+          v-model="name"
+          box
+        ></v-text-field>
+        <v-textarea
+          color="darkstormblue"
+          label="Tell us a little bit about yourself"
+          v-model="bio"
+          :rules="bioRules"
+          counter="1000"
+          box
+        ></v-textarea>
+        <v-textarea
+          color="darkstormblue"
+          label="Summary"
+          v-model="summary"
+          :rules="summaryRules"
+          counter="100"
+          box
+        ></v-textarea>
+      </v-form>
       <v-btn
         class="step6__next"
         color="darkstormblue"
@@ -40,9 +47,19 @@ export default {
 
   data () {
     return {
+      valid: false,
       name: '',
       bio: '',
-      summary: ''
+      summary: '',
+      nameRules: [
+        v => !!v || 'Name is Required'
+      ],
+      bioRules: [
+        v => v.length <= 1000 || 'Maximum characters reached'
+      ],
+      summaryRules: [
+        v => v.length <= 100 || 'Maximum characters reached'
+      ]
     }
   },
 
