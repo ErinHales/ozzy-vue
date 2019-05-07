@@ -47,61 +47,6 @@ const mutations = {
   }
 }
 
-// const actions = {
-//   agreeToTerms () {
-//     return new Promise((resolve) => {
-//       const date = new Date()
-//       appStorage.setItem('agreeToTOS', date)
-//       trackAgreeTOSClick(date)
-//       return resolve(date)
-//     })
-//   },
-
-//   startApplication ({ dispatch }) {
-//     const hasSetup = appStorage.getItem('userSetupComplete')
-
-//     if (!hasSetup) {
-//       dispatch('setupUser')
-//     } else {
-//       dispatch('getListingsAndPrevouts')
-//     }
-//   },
-
-//   async getListingsAndPrevouts ({ dispatch }) {
-//     await dispatch('listings/getETHListings', null, { root: true })
-//     dispatch('wallet/btc/listPrevouts', null, { root: true })
-//   },
-
-//   /**
-//    * 1/2 setup_user - Sets up user in db. Should only ever called once.
-//    */
-//   setupUser ({ dispatch, state }) {
-//     const payload = {
-//       method: 'setup_user',
-//       request_name: 'setupUser',
-//       args: {
-//         secret_phrase: state.auth.secret_phrase
-//       }
-//     }
-
-//     dispatch('sockets/sendBidderRequest', payload, { root: true })
-//   },
-
-//   /**
-//    * 2/2 setup_user - After user is setup, seed phrase is returned
-//    * @param {String} socketResponse - seed phrase
-//    */
-//   processSetupUser ({ commit, dispatch }, socketResponse) {
-//     if (socketResponse.res) {
-//       commit(types.SET_HAS_SETUP, true)
-//       appStorage.setItem('userSetupComplete', new Date())
-//     } else if (socketResponse.error === 'User already exists in DB. Refusing to overwrite.') {
-//       appStorage.setItem('userSetupComplete', new Date())
-//       commit(types.SET_HAS_SETUP, true)
-//     }
-
-//     dispatch('getListingsAndPrevouts')
-//   },
 const actions = {
   setStatus({ commit }, status) {
     commit(types.SET_STATUS, status)
@@ -125,24 +70,6 @@ const actions = {
     commit(types.SET_ADDRESS, address)
   }
 }
-
-//   openSetupModal ({ commit }, open) {
-//     commit(types.OPEN_SETUP_MODAL, open)
-//   },
-
-//   openNewWalletModal ({ commit }, open) {
-//     commit(types.OPEN_NEW_WALLET_MODAL, open)
-//   },
-
-//   changeTheme ({ commit }, theme) {
-//     if (theme === 'dark') {
-//       appStorage.setItem('userColorTheme', 'dark')
-//     } else {
-//       appStorage.setItem('userColorTheme', 'light')
-//     }
-//     commit(types.CHANGE_THEME, theme)
-//   }
-// }
 
 export default {
   namespaced: true,
