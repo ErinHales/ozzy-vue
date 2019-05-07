@@ -66,7 +66,6 @@ export default {
       }
     },
     login () {
-      console.log(this.valid)
       if (this.valid) {
         this.$router.push({ path: '/setup' })
       }

@@ -21,7 +21,7 @@ export default {
   },
 
   components: {
-    Logo: () => import('../assets/logo.vue')
+    Logo: () => import('../app/logo.vue')
   },
 
   created () {
