@@ -11,9 +11,11 @@
           </div>
         </div>
       </Dropzone> -->
-      <Vue-Dropzone :options="dropzoneOptions" class="step4__dropzone"></Vue-Dropzone>
+      <Vue-Dropzone :options="dropzoneOptions" id="myDropzone" class="step4__dropzone"></Vue-Dropzone>
       </div>
       <v-btn
+        :loading="loading"
+        :disabled="loading"
         class="step4__next"
         color="darkstormblue"
         dark
@@ -39,17 +41,26 @@ export default {
   },
 
   data: function () {
+    const vm = this
     return {
+      loading: false,
       dropzoneOptions: {
         url: 'https://httpbin.org/post',
         maxFilesize: 5,
         // headers: { 'My-Awersome-Header': 'header value' },
         maxFiles: 1,
         init: function () {
+          console.log(this)
           this.on('addedfile', function (file) {
             if (this.files.length > 1) {
               this.removeFile(this.files[0])
             }
+          })
+          this.on('processing', function () {
+            vm.loading = true
+          })
+          this.on('complete', function () {
+            vm.loading = false
           })
         }
       }
@@ -57,6 +68,9 @@ export default {
   },
 
   methods: {
+    triggerLoad () {
+      this.loading = true
+    },
     // onDrop = files => {
     //   // This takes the file that is uploaded from react-dropzone and immediately uploads it onto Cloudinary. Cloudinary returns a public id and url for the image that can be used in website layouts
     //   // Push all the axios request promise into a single array

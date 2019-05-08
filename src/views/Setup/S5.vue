@@ -43,7 +43,7 @@ export default {
 
   methods: {
     nextStep (num) {
-      if (this.valid) {
+      if (this.valid || num === 4) {
         this.$emit('move', num)
       }
     }
