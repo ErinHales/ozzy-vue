@@ -8,6 +8,7 @@
         :rules="emailRules"
         v-model="email"
         placeholder="Email"
+        validate-on-blur
         autofocus
       ></v-text-field>
       <v-text-field

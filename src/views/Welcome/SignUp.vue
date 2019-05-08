@@ -8,6 +8,7 @@
         :rules="nameRules"
         v-model="userData.name"
         placeholder="Name"
+        validate-on-blur
         autofocus
       ></v-text-field>
       <v-text-field
@@ -17,6 +18,7 @@
         :rules="emailRules"
         v-model="userData.email"
         placeholder="Email"
+        validate-on-blur
       ></v-text-field>
       <v-text-field
         class="my-3"
@@ -26,6 +28,7 @@
         :rules="passwordRules"
         v-model="userData.password1"
         placeholder="Password"
+        validate-on-blur
         @click:append="showPasswords('first')"
       ></v-text-field>
       <v-text-field
@@ -35,6 +38,7 @@
         :rules="confirmPasswordRules"
         v-model="userData.password2"
         placeholder="Confirm Password"
+        validate-on-blur
         @click:append="showPasswords('second')"
       ></v-text-field>
       <v-layout justify-space-between>
