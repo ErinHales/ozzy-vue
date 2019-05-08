@@ -38,6 +38,8 @@ export default {
 
   methods: {
     nextStep (num) {
+      this.$store.dispatch('user/subscribe', this.subscribedChannels)
+      console.log(this.$store.state.user.subscribedChannels)
       this.$emit('move', num)
     }
   }

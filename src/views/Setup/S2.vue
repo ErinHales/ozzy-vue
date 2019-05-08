@@ -38,6 +38,8 @@ export default {
 
   methods: {
     nextStep (num) {
+      this.$store.dispatch('user/seekingChildCare', this.response)
+      console.log(this.$store.state.user.seekingChildCare)
       this.$emit('move', num)
     }
   }

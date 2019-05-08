@@ -34,6 +34,8 @@ export default {
 
   methods: {
     nextStep () {
+      this.$store.dispatch('user/setStatus', this.status)
+      console.log(this.$store.state.user.status)
       this.$emit('move', 2)
     }
   }

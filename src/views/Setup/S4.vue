@@ -44,6 +44,7 @@ export default {
     const vm = this
     return {
       loading: false,
+      url: 'http://',
       dropzoneOptions: {
         url: 'https://httpbin.org/post',
         maxFilesize: 5,
@@ -102,6 +103,8 @@ export default {
     //     });
     // },
     nextStep (num) {
+      this.$store.dispatch('user/setProfile', this.url)
+      console.log(this.$store.state.user.profilePicture)
       this.$emit('move', num)
     }
   }

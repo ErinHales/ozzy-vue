@@ -34,6 +34,7 @@
         label="ZIP Code"
         v-model="address.zip"
         :rules="zipRules"
+        validate-on-blur
         box
       ></v-text-field>
       <v-btn
@@ -82,6 +83,8 @@ export default {
 
   methods: {
     nextStep (num) {
+      this.$store.dispatch('user/setAddress', this.address)
+      console.log(this.$store.state.user.address)
       this.$emit('move', num)
     }
   }

@@ -1,4 +1,4 @@
-import * as types from '../../mutation-types'
+import * as types from '../mutation-types'
 
 // import { appStorage } from '@/utils'
 
@@ -38,35 +38,34 @@ const mutations = {
   [types.SET_CARE_TYPE] (state, type) {
     state.careProviderType = type
   },
-  [type.SET_PROFILE_DATA] (state, data) {
-    state.profileData.name = data.name
+  [types.SET_PROFILE_DATA] (state, data) {
     Object.assign(state.profileData, data)
   },
-  [type.SET_ADDRESS] (state, address) {
+  [types.SET_ADDRESS] (state, address) {
     Object.assign(state.address, address)
   }
 }
 
 const actions = {
-  setStatus({ commit }, status) {
+  setStatus ({ commit }, status) {
     commit(types.SET_STATUS, status)
   },
-  seekingChildCare({ commit }, value) {
+  seekingChildCare ({ commit }, value) {
     commit(types.SEEKING_CHILD_CARE, value)
   },
-  subscribe({ commit }, arr) {
+  subscribe ({ commit }, arr) {
     commit(types.SUBSCRIBE, arr)
   },
-  setProfile({ commit }, url) {
+  setProfile ({ commit }, url) {
     commit(types.SET_PROFILE, url)
   },
-  setCareType({ commit }, type) {
+  setCareType ({ commit }, type) {
     commit(types.SET_CARE_TYPE, type)
   },
-  setProfileData({ commit }, data) {
+  setProfileData ({ commit }, data) {
     commit(types.SET_PROFILE_DATA, data)
   },
-  setAddress({ commit }, address) {
+  setAddress ({ commit }, address) {
     commit(types.SET_ADDRESS, address)
   }
 }

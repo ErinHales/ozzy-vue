@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './modules/user'
 
-import * as types from './mutation-types'
+// import * as types from './mutation-types'
 
 Vue.use(Vuex)
 

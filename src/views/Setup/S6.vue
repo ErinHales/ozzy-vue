@@ -7,13 +7,13 @@
           color="darkstormblue"
           label="Name"
           :rules="nameRules"
-          v-model="name"
+          v-model="userData.name"
           box
         ></v-text-field>
         <v-textarea
           color="darkstormblue"
           label="Tell us a little bit about yourself"
-          v-model="bio"
+          v-model="userData.bio"
           :rules="bioRules"
           counter="1000"
           box
@@ -21,7 +21,7 @@
         <v-textarea
           color="darkstormblue"
           label="Summary"
-          v-model="summary"
+          v-model="userData.summary"
           :rules="summaryRules"
           counter="100"
           box
@@ -48,9 +48,11 @@ export default {
   data () {
     return {
       valid: false,
-      name: '',
-      bio: '',
-      summary: '',
+      userData: {
+        name: '',
+        bio: '',
+        summary: ''
+      },
       nameRules: [
         v => !!v || 'Name is Required'
       ],
@@ -65,6 +67,8 @@ export default {
 
   methods: {
     nextStep (num) {
+      this.$store.dispatch('user/setProfileData', this.userData)
+      console.log(this.$store.state.user.profileData)
       this.$emit('move', num)
     }
   }

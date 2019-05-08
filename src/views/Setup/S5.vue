@@ -44,6 +44,8 @@ export default {
   methods: {
     nextStep (num) {
       if (this.valid || num === 4) {
+        this.$store.dispatch('user/setCareType', this.response)
+        console.log(this.$store.state.user.careProviderType)
         this.$emit('move', num)
       }
     }
