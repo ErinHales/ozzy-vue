@@ -2,15 +2,7 @@
   <div class="step4">
     <v-layout column>
       <div className="parentQ3">
-      <h3>Update Your Profile Picture</h3>
-      <!-- <Dropzone onDrop={this.onDrop} className='dropzone setProfilePic' multiple={false}>
-        <div className="overlayContainer">
-            <img src={this.state.userPic} alt="upload" className="postImg introImg" />
-            <div className="middle">
-            <div className="text">Drag or click to select photo</div>
-          </div>
-        </div>
-      </Dropzone> -->
+      <h3>Upload Your Picture</h3>
       <Vue-Dropzone :options="dropzoneOptions" id="myDropzone" class="step4__dropzone"></Vue-Dropzone>
       </div>
       <v-btn
@@ -19,12 +11,12 @@
         class="step4__next"
         color="darkstormblue"
         dark
-        @click="nextStep(5)"
+        @click="nextStep(3)"
       >
-        Next
+        {{ url ? 'Next' : 'Skip' }}
       </v-btn>
 
-      <v-btn flat @click="nextStep(3)" class="step4__back">Back</v-btn>
+      <v-btn flat @click="nextStep(1)" class="step4__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
@@ -35,7 +27,7 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import axios from 'axios'
 
 export default {
-  name: 'ParentQ3',
+  name: 'S4',
 
   components: {
     VueDropzone: vue2Dropzone

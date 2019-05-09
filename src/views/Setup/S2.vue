@@ -15,19 +15,19 @@
         class="step2__next"
         color="darkstormblue"
         dark
-        @click="nextStep(3)"
+        @click="nextStep(5)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(1)" class="step2__back">Back</v-btn>
+      <v-btn flat @click="nextStep(3)" class="step2__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ParentQ',
+  name: 'S2',
 
   data () {
     return {

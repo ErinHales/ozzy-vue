@@ -23,13 +23,13 @@
 
       <v-stepper-step step="6" :complete="el > 6" color="darkstormblue"></v-stepper-step>
 
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider>
 
-      <v-stepper-step step="7" :complete="el > 7" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="7" :complete="el > 7" color="darkstormblue"></v-stepper-step> -->
 
-      <v-divider></v-divider>
+      <!-- <v-divider></v-divider>
 
-      <v-stepper-step step="8" :complete="el > 8" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="8" :complete="el > 8" color="darkstormblue"></v-stepper-step> -->
     </v-stepper-header>
 
     <v-stepper-items>
@@ -37,32 +37,43 @@
         <S1 @move="setStepper"></S1>
       </v-stepper-content>
 
+      <!-- Both -->
       <v-stepper-content step="2">
-        <S2 @move="setStepper"></S2>
-      </v-stepper-content>
-
-      <v-stepper-content step="3">
-        <S3 @move="setStepper"></S3>
-      </v-stepper-content>
-
-      <v-stepper-content step="4">
         <S4 @move="setStepper"></S4>
       </v-stepper-content>
 
-      <v-stepper-content step="5">
-        <S5 @move="setStepper"></S5>
+      <!-- Just Parent -->
+      <v-stepper-content v-if="status === 'Parent'" step="3">
+        <S8 @move="setStepper"></S8>
       </v-stepper-content>
 
-      <v-stepper-content step="6">
+      <!-- Just Care Provider -->
+      <v-stepper-content v-else step="3">
         <S6 @move="setStepper"></S6>
       </v-stepper-content>
 
-      <v-stepper-content step="7">
+      <!-- Just Parent -->
+      <v-stepper-content v-if="status === 'Parent'" step="4">
+        <S2 @move="setStepper"></S2>
+      </v-stepper-content>
+
+      <!-- Both?  Add note that their information will be used to match them with caregivers in their area.  Required for Care Provider, not required for Parent -->
+      <v-stepper-content v-else step="4">
         <S7 @move="setStepper"></S7>
       </v-stepper-content>
 
-      <v-stepper-content step="8">
-        <S8 @move="setStepper"></S8>
+      <!-- Just Care Provider
+      <v-stepper-content v-else step="4">
+        <S5 @move="setStepper"></S5>
+      </v-stepper-content> -->
+
+      <!-- Both -->
+      <v-stepper-content step="5">
+        <S3 @move="setStepper"></S3>
+      </v-stepper-content>
+
+      <v-stepper-content step="6">
+        <S9 @move="setStepper"></S9>
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
@@ -77,15 +88,25 @@ import S5 from './S5'
 import S6 from './S6'
 import S7 from './S7'
 import S8 from './S8'
+import S9 from './S9'
 
 export default {
   name: 'Setup',
+
   data () {
     return {
       el: 0
     }
   },
-  components: { S1, S2, S3, S4, S5, S6, S7, S8 },
+
+  components: { S1, S2, S3, S4, S5, S6, S7, S8, S9 },
+
+  computed: {
+    status: function () {
+      return this.$store.state.user.status
+    }
+  },
+
   methods: {
     setStepper (step) {
       this.el = step

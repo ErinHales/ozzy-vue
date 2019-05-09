@@ -1,59 +1,63 @@
 <template>
   <div class="step7">
     <v-layout column>
-      <v-text-field
-        color="darkstormblue"
-        label="Address Line 1"
-        v-model="address.line1"
-        :rules="line1Rules"
-        box
-      ></v-text-field>
-      <v-text-field
-        color="darkstormblue"
-        label="Address Line 2"
-        v-model="address.line2"
-        box
-      ></v-text-field>
-      <v-text-field
-        color="darkstormblue"
-        label="City"
-        v-model="address.city"
-        :rules="cityRules"
-        box
-      ></v-text-field>
-      <v-select
-        color="darkstormblue"
-        :items="states"
-        label="State"
-        v-model="address.state"
-        :rules="stateRules"
-        box
-      ></v-select>
-      <v-text-field
-        color="darkstormblue"
-        label="ZIP Code"
-        v-model="address.zip"
-        :rules="zipRules"
-        validate-on-blur
-        box
-      ></v-text-field>
+      <h3>Provide an Address</h3>
+      <h5>(This will be used to match you with families in your area</h5>
+      <v-form v-model="valid">
+        <v-text-field
+          color="darkstormblue"
+          label="Address Line 1"
+          v-model="address.line1"
+          :rules="line1Rules"
+          box
+        ></v-text-field>
+        <v-text-field
+          color="darkstormblue"
+          label="Address Line 2"
+          v-model="address.line2"
+          box
+        ></v-text-field>
+        <v-text-field
+          color="darkstormblue"
+          label="City"
+          v-model="address.city"
+          :rules="cityRules"
+          box
+        ></v-text-field>
+        <v-select
+          color="darkstormblue"
+          :items="states"
+          label="State"
+          v-model="address.state"
+          :rules="stateRules"
+          box
+        ></v-select>
+        <v-text-field
+          color="darkstormblue"
+          label="ZIP Code"
+          v-model="address.zip"
+          :rules="zipRules"
+          validate-on-blur
+          box
+        ></v-text-field>
+      </v-form>
       <v-btn
         class="step7__next"
         color="darkstormblue"
         dark
-        @click="nextStep(8)"
+        @click="nextStep(5)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(6)" class="step7__back">Back</v-btn>
+      <v-btn flat @click="nextStep(3)" class="step7__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CareProviderQ3',
+  name: 'S7',
 
   data () {
     return {

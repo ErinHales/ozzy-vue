@@ -10,9 +10,17 @@
           v-model="userData.name"
           box
         ></v-text-field>
+        <v-select
+          color="darkstormblue"
+          :items="careTypes"
+          :rules="rules"
+          label="Type of business"
+          v-model="response"
+          box
+        ></v-select>
         <v-textarea
           color="darkstormblue"
-          label="Tell us a little bit about yourself"
+          label="Description"
           v-model="userData.bio"
           :rules="bioRules"
           counter="1000"
@@ -31,19 +39,19 @@
         class="step6__next"
         color="darkstormblue"
         dark
-        @click="nextStep(7)"
+        @click="nextStep(4)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(5)" class="step6__back">Back</v-btn>
+      <v-btn flat @click="nextStep(2)" class="step6__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CareProviderQ2',
+  name: 'S6',
 
   data () {
     return {
@@ -53,8 +61,12 @@ export default {
         bio: '',
         summary: ''
       },
+      careTypes: ['School', 'Day Care', 'Preschool', 'Baby Sitter', 'Nanny'],
       nameRules: [
         v => !!v || 'Name is Required'
+      ],
+      typeRules: [
+        v => !!v || 'Select an option'
       ],
       bioRules: [
         v => v.length <= 1000 || 'Maximum characters reached'
@@ -68,7 +80,8 @@ export default {
   methods: {
     nextStep (num) {
       this.$store.dispatch('user/setProfileData', this.userData)
-      console.log(this.$store.state.user.profileData)
+      this.$store.dispatch('user/setCareType', this.response)
+      console.log(this.$store.state.user.profileData, this.$store.state.user.careProviderType)
       this.$emit('move', num)
     }
   }

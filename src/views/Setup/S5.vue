@@ -16,19 +16,19 @@
         class="step5__next"
         color="darkstormblue"
         dark
-        @click="nextStep(6)"
+        @click="nextStep(5)"
       >
         Next
       </v-btn>
 
-      <v-btn flat @click="nextStep(4)" class="step5__back">Back</v-btn>
+      <v-btn flat @click="nextStep(3)" class="step5__back">Back</v-btn>
     </v-layout>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CareProviderQ',
+  name: 'S5',
 
   data () {
     return {
