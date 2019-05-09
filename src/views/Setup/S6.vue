@@ -13,7 +13,7 @@
         <v-select
           color="darkstormblue"
           :items="careTypes"
-          :rules="rules"
+          :rules="typeRules"
           label="Type of business"
           v-model="response"
           box
@@ -61,6 +61,7 @@ export default {
         bio: '',
         summary: ''
       },
+      response: '',
       careTypes: ['School', 'Day Care', 'Preschool', 'Baby Sitter', 'Nanny'],
       nameRules: [
         v => !!v || 'Name is Required'

@@ -61,6 +61,7 @@ export default {
 
   data () {
     return {
+      valid: false,
       address: {
         line1: '',
         line2: '',

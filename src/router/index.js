@@ -4,6 +4,8 @@ import SignUp from '../views/Welcome/SignUp'
 import Login from '../views/Welcome/Login'
 import Setup from '../views/Setup'
 import Loader from '../components/app/loader'
+import Home from '../views/Home/Home.main'
+import Feed from '../views/Home/Feed/Feed.main'
 
 Vue.use(Router)
 
@@ -28,6 +30,14 @@ export default new Router({
       path: '/setup',
       name: 'Setup',
       component: Setup
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home,
+      children: [
+        { path: '/feed', component: Feed }
+      ]
     }
   ]
 })

@@ -5,12 +5,12 @@
         class="step8__next"
         color="darkstormblue"
         dark
-        @click="nextStep"
+        @click="finish"
       >
-        Continue
+        Finish
       </v-btn>
 
-      <v-btn flat class="step8__back">Cancel</v-btn>
+      <v-btn flat class="step8__back" @click="nextStep()">Back</v-btn>
     </v-layout>
   </div>
 </template>
@@ -20,7 +20,10 @@ export default {
   name: 'S9',
   methods: {
     nextStep () {
-      this.$emit('move', 1)
+      this.$emit('move', 6)
+    },
+    finish () {
+      this.$router.push('/feed')
     }
   }
 }
