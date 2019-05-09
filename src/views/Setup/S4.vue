@@ -32,6 +32,7 @@
 <script>
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+import axios from 'axios'
 
 export default {
   name: 'ParentQ3',
@@ -40,18 +41,23 @@ export default {
     VueDropzone: vue2Dropzone
   },
 
+  mounted () {
+    console.log(process.env.VUE_APP_CLOUD_NAME)
+    // axios.get('/api/test', (res) => {
+    //   console.log(res)
+    // })
+  },
+
   data: function () {
     const vm = this
     return {
       loading: false,
-      url: 'http://',
+      url: '',
       dropzoneOptions: {
         url: 'https://httpbin.org/post',
         maxFilesize: 5,
-        // headers: { 'My-Awersome-Header': 'header value' },
         maxFiles: 1,
         init: function () {
-          console.log(this)
           this.on('addedfile', function (file) {
             if (this.files.length > 1) {
               this.removeFile(this.files[0])
@@ -60,8 +66,9 @@ export default {
           this.on('processing', function () {
             vm.loading = true
           })
-          this.on('complete', function () {
+          this.on('complete', function (file) {
             vm.loading = false
+            vm.upload(file)
           })
         }
       }
@@ -72,36 +79,26 @@ export default {
     triggerLoad () {
       this.loading = true
     },
-    // onDrop = files => {
-    //   // This takes the file that is uploaded from react-dropzone and immediately uploads it onto Cloudinary. Cloudinary returns a public id and url for the image that can be used in website layouts
-    //   // Push all the axios request promise into a single array
-    //   let { REACT_APP_UPLOAD_PRESET, CLOUDINARY_API_KEY, REACT_APP_CLOUD_NAME } = process.env;
-    //   const uploaders = files.map(file => {
-    //     // Information must be in form data, that's the way Cloudinary wants it
-    //     const formData = new FormData();
-    //     formData.append("file", file);
-    //     formData.append("upload_preset", REACT_APP_UPLOAD_PRESET); // Replace the preset name with your own
-    //     formData.append("api_key", CLOUDINARY_API_KEY); // Replace API key with your own Cloudinary key
-    //     formData.append("timestamp", (Date.now() / 1000) | 0);
+    upload (file) {
+      const { VUE_APP_CLOUDINARY_UPLOAD_PRESET, VUE_APP_CLOUDINARY_API_KEY, VUE_APP_CLOUD_NAME } = process.env
+      console.log(VUE_APP_CLOUDINARY_UPLOAD_PRESET, VUE_APP_CLOUDINARY_API_KEY, VUE_APP_CLOUD_NAME)
 
-    //     // Make an AJAX upload request using Axios, pass in formData
-    //     return axios.post(`https://api.cloudinary.com/v1_1/${REACT_APP_CLOUD_NAME}/image/upload`, formData, {
-    //       headers: { "X-Requested-With": "XMLHttpRequest" },
-    //     }).then(response => {
-    //       const data = response.data;
-    //       const fileURL = data.secure_url // You should store this URL for future references in your app
-    //       console.log(file);
-    //       this.setState({
-    //         publicId: data.public_id,
-    //         userPic: fileURL
-    //         })
-    //       })
-    //     });
-    //     axios.all(uploaders).then(() => {
-    //         // ... perform after upload is successful operation
+      // Information must be in form data, that's the way Cloudinary wants it
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('upload_preset', VUE_APP_CLOUDINARY_UPLOAD_PRESET) // Replace the preset name with your own
+      formData.append('api_key', VUE_APP_CLOUDINARY_API_KEY) // Replace API key with your own Cloudinary key
+      formData.append('timestamp', (Date.now() / 1000) | 0)
 
-    //     });
-    // },
+      return axios.post(`https://api.cloudinary.com/v1_1/${VUE_APP_CLOUD_NAME}/image/upload`, formData, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      }).then(response => {
+        const data = response.data
+        const fileURL = data.secure_url // You should store this URL for future references in your app
+        console.log('File uploaded successfully to Cloudinary', fileURL)
+        this.url = fileURL
+      })
+    },
     nextStep (num) {
       this.$store.dispatch('user/setProfile', this.url)
       console.log(this.$store.state.user.profilePicture)
