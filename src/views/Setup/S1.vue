@@ -1,9 +1,9 @@
 <template>
   <div class="step1">
     <v-layout column>
-      <h3>Please select your status</h3>
+      <h3 class="mb-2">Please select your status</h3>
       <v-select
-        color="darkstormblue"
+        color="deepBlue"
         :items="items"
         v-model="status"
         box
@@ -11,7 +11,7 @@
       </v-select>
       <v-btn
         class="step1__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep"
       >

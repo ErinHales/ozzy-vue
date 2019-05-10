@@ -2,30 +2,30 @@
   <div class="step7">
     <v-layout column>
       <h3>Provide an Address</h3>
-      <h5>(This will be used to match you with families in your area</h5>
+      <h5 class="mb-2">(This will be used to match you with families in your area</h5>
       <v-form v-model="valid">
         <v-text-field
-          color="darkstormblue"
+          color="deepBlue"
           label="Address Line 1"
           v-model="address.line1"
           :rules="line1Rules"
           box
         ></v-text-field>
         <v-text-field
-          color="darkstormblue"
+          color="deepBlue"
           label="Address Line 2"
           v-model="address.line2"
           box
         ></v-text-field>
         <v-text-field
-          color="darkstormblue"
+          color="deepBlue"
           label="City"
           v-model="address.city"
           :rules="cityRules"
           box
         ></v-text-field>
         <v-select
-          color="darkstormblue"
+          color="deepBlue"
           :items="states"
           label="State"
           v-model="address.state"
@@ -33,7 +33,7 @@
           box
         ></v-select>
         <v-text-field
-          color="darkstormblue"
+          color="deepBlue"
           label="ZIP Code"
           v-model="address.zip"
           :rules="zipRules"
@@ -43,7 +43,7 @@
       </v-form>
       <v-btn
         class="step7__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(5)"
       >

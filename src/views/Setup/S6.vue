@@ -1,17 +1,17 @@
 <template>
   <div class="step6">
     <v-layout column>
-      <h3>Build your Profile!</h3>
+      <h3 class="mb-2">Build your Profile!</h3>
       <v-form v-model="valid">
         <v-text-field
-          color="darkstormblue"
+          color="deepBlue"
           label="Name"
           :rules="nameRules"
           v-model="userData.name"
           box
         ></v-text-field>
         <v-select
-          color="darkstormblue"
+          color="deepBlue"
           :items="careTypes"
           :rules="typeRules"
           label="Type of business"
@@ -19,7 +19,7 @@
           box
         ></v-select>
         <v-textarea
-          color="darkstormblue"
+          color="deepBlue"
           label="Description"
           v-model="userData.bio"
           :rules="bioRules"
@@ -27,7 +27,7 @@
           box
         ></v-textarea>
         <v-textarea
-          color="darkstormblue"
+          color="deepBlue"
           label="Summary"
           v-model="userData.summary"
           :rules="summaryRules"
@@ -37,7 +37,7 @@
       </v-form>
       <v-btn
         class="step6__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(4)"
       >

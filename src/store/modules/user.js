@@ -3,6 +3,7 @@ import * as types from '../mutation-types'
 // import { appStorage } from '@/utils'
 
 const state = {
+  hasFinishedSetup: localStorage.hasFinishedSetup,
   status: '', // Parent or Care Provider
   seekingChildCare: false, // Yes or no
   subscribedChannels: [], // Array of subscribed channels
@@ -23,6 +24,10 @@ const state = {
 }
 
 const mutations = {
+  [types.COMPLETE_SETUP] (state, value) {
+    state.hasFinishedSetup = true
+    localStorage.setItem('hasFinishedSetup', true)
+  },
   [types.SET_STATUS] (state, value) {
     state.status = value
   },
@@ -47,6 +52,9 @@ const mutations = {
 }
 
 const actions = {
+  completeSetup ({ commit }) {
+    commit(types.COMPLETE_SETUP)
+  },
   setStatus ({ commit }, status) {
     commit(types.SET_STATUS, status)
   },

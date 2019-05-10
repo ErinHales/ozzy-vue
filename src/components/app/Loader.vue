@@ -40,10 +40,12 @@ export default {
 
 <style scoped lang="stylus">
 .loader
-  background-image linear-gradient(to bottom right, #fac8bf, #a7bcc5)
+  background-color #6799A3
+  // background-color #EAD5E1
   &__animation
     &--start
-      background-color rgba(255,255,255,0.3)
+      background-color #CBEAEB
+      opacity 0.3
       border-radius 50%
       width 0
       height 0
@@ -52,8 +54,7 @@ export default {
       left 50%
       transition all 1s ease-in-out
     &--finish
-      background-color rgba(255,255,255,1)
-      // background-color #fac8bf
+      opacity 1
       width 100%
       height 135%
       padding-top 200%
@@ -70,7 +71,7 @@ export default {
       width 80%
       max-width 500px
       padding 50px
-      background-color rgba(255,255,255,0.3)
+      background-color rgba(203, 234, 235, 0.7)
       border-radius 50%
       // z-index 1
 </style>

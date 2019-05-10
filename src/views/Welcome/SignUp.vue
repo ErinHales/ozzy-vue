@@ -1,6 +1,6 @@
 <template>
-  <div class="signup fade-in">
-    <v-form class="signup__form my-5" v-model="valid" @submit.prevent="signup">
+  <div class="signup">
+    <v-form class="signup__form fade-in my-5" v-model="valid" @submit.prevent="signup">
       <v-text-field
         class="my-3"
         color="#fac8bf"
@@ -10,6 +10,7 @@
         placeholder="Name"
         validate-on-blur
         autofocus
+        solo
       ></v-text-field>
       <v-text-field
         class="my-3"
@@ -19,6 +20,7 @@
         v-model="userData.email"
         placeholder="Email"
         validate-on-blur
+        solo
       ></v-text-field>
       <v-text-field
         class="my-3"
@@ -29,6 +31,7 @@
         v-model="userData.password1"
         placeholder="Password"
         validate-on-blur
+        solo
         @click:append="showPasswords('first')"
       ></v-text-field>
       <v-text-field
@@ -39,11 +42,12 @@
         v-model="userData.password2"
         placeholder="Confirm Password"
         validate-on-blur
+        solo
         @click:append="showPasswords('second')"
       ></v-text-field>
       <v-layout justify-space-between>
         <h5 class="mt-3">Already have an account? <router-link to="/login" class="signup__form__link">Login</router-link></h5>
-        <v-btn type="submit" color="#fac8bf" class="signup__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
+        <v-btn type="submit" color="orange" class="signup__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
       </v-layout>
     </v-form>
   </div>
@@ -142,6 +146,7 @@ export default {
       // }
     },
     validate () {
+      // TODO: change this
       if (this.email.indexOf('@') >= 0 && this.email.indexOf('.com') === this.email.length - 4) {
         this.validEmail = true
         return true
@@ -172,6 +177,7 @@ export default {
   justify-content center
   align-items center
   height 100vh
+  background-color #CBEAEB
   &__form
     width 90%
     max-width 400px

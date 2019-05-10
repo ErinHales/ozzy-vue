@@ -21,7 +21,17 @@ Vue.use(Vuetify, {
     brightblue: '#94FFFC',
     darkstormblue: '#466675',
     lightstormblue: '#6A8D9D',
-    gray: '#CCCCCC'
+    gray: '#CCCCCC',
+    black: '#000000',
+    white: '#FFFFFF',
+
+    pinkLemonade: '#EAD5E1',
+    mintGreen: '#AEE0C5',
+    babyBlue: '#CBEAEB',
+    // orange: '#FFB100',
+    // orange: '#ffb347',
+    orange: 'FFBB5B',
+    deepBlue: '#6799A3'
   }
 })
 

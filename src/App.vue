@@ -15,6 +15,8 @@ export default {
 </script>
 
 <style lang="stylus">
+$babyBlue = #CBEAEB
+
 .application-wrap
   min-width 100vw
   min-height 100vh

@@ -2,14 +2,14 @@
   <div class="step4">
     <v-layout column>
       <div className="parentQ3">
-      <h3>Upload Your Picture</h3>
+      <h3 class="mb-2">Upload Your Picture</h3>
       <Vue-Dropzone :options="dropzoneOptions" id="myDropzone" class="step4__dropzone"></Vue-Dropzone>
       </div>
       <v-btn
         :loading="loading"
         :disabled="loading"
         class="step4__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(3)"
       >

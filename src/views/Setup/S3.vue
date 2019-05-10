@@ -2,18 +2,18 @@
   <div class="step3">
     <v-layout column>
       <!-- <div className="parentQ2"> -->
-      <h3>What channels would you like to see in your newsfeed?</h3>
+      <h3 class="mb-2">What channels would you like to see in your newsfeed?</h3>
       <v-select
         v-model="subscribedChannels"
         :items="channels"
-        color="darkstormblue"
+        color="deepBlue"
         box
         chips
         multiple
       ></v-select>
       <v-btn
         class="step3__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(6)"
       >

@@ -2,9 +2,9 @@
   <div class="step2">
     <v-layout column>
       <div>
-        <h3>Are you interested in finding child care?</h3>
+        <h3 class="mb-2">Are you interested in finding child care?</h3>
         <v-select
-          color="darkstormblue"
+          color="deepBlue"
           :items="items"
           v-model="response"
           box
@@ -13,7 +13,7 @@
       </div>
       <v-btn
         class="step2__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(5)"
       >

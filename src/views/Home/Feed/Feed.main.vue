@@ -1,13 +1,46 @@
 <template>
-  <div><h1>this is the news feed</h1></div>
+  <div class="feed">
+    <v-layout column align-center class="feed__layout">
+      <Post v-for="(post, i) in posts" :key="i" :post="post"></Post>
+    </v-layout>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Feed'
+  name: 'Feed',
+
+  data: () => ({
+    posts: [
+      {
+        author: 'Joe Shmoe',
+        date: 'Today',
+        category: 'Just Dads',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      },
+      {
+        author: 'Jane Doe',
+        date: 'Yesterday',
+        category: 'Just Moms',
+        text: 'Some text'
+      },
+      {
+        author: 'Jane Doe',
+        date: 'Yesterday',
+        category: 'Just Moms',
+        text: 'Some text'
+      }
+    ]
+  }),
+
+  components: {
+    Post: () => import('./Feed.post.vue')
+  }
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+.feed
+  padding-top 64px
+  background-color #F3F3F0
 </style>

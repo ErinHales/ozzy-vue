@@ -1,35 +1,28 @@
 <template>
-  <v-stepper v-model="el" id="setup">
-    <v-stepper-header>
-      <v-stepper-step step="1" :complete="el > 1" color="darkstormblue"></v-stepper-step>
+  <v-stepper v-model="el" class="setup">
+    <v-stepper-header class="setup__header">
+      <v-stepper-step step="1" :complete="el > 1" color="deepBlue darken-4" class="black--text"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="2" :complete="el > 2" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="2" :complete="el > 2" color="deepBlue darken-4" class="setup__header__step"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="3" :complete="el > 3" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="3" :complete="el > 3" color="deepBlue darken-4" class="setup__header__step"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="4" :complete="el > 4" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="4" :complete="el > 4" color="deepBlue darken-4" class="setup__header__step"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="5" :complete="el > 5" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="5" :complete="el > 5" color="deepBlue darken-4" class="setup__header__step"></v-stepper-step>
 
       <v-divider></v-divider>
 
-      <v-stepper-step step="6" :complete="el > 6" color="darkstormblue"></v-stepper-step>
+      <v-stepper-step step="6" :complete="el > 6" color="deepBlue darken-4" class="setup__header__step"></v-stepper-step>
 
-      <!-- <v-divider></v-divider>
-
-      <v-stepper-step step="7" :complete="el > 7" color="darkstormblue"></v-stepper-step> -->
-
-      <!-- <v-divider></v-divider>
-
-      <v-stepper-step step="8" :complete="el > 8" color="darkstormblue"></v-stepper-step> -->
     </v-stepper-header>
 
     <v-stepper-items>
@@ -61,11 +54,6 @@
       <v-stepper-content v-else step="4">
         <S7 @move="setStepper"></S7>
       </v-stepper-content>
-
-      <!-- Just Care Provider
-      <v-stepper-content v-else step="4">
-        <S5 @move="setStepper"></S5>
-      </v-stepper-content> -->
 
       <!-- Both -->
       <v-stepper-content step="5">
@@ -116,12 +104,18 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-// .v-stepper__step--active
-.v-stepper__step__step
-  background-color black !important
-#setup
-  background-color #fac8bf
+.setup
+  // background-color #F7D8D8
   // background-color #FAC8BF
   height 100vh
   overflow hidden
+  // background-color rgba(103,153,163,0.5)
+  // background-color #AEE0C5
+  // background-color #FCD5D9
+  background-color #FBDBD7
+  &__header
+    background-color #6799A3
+    // background-color #9cc9b1
+    &__step
+      color black !important
 </style>

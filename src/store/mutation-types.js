@@ -1,4 +1,5 @@
 // user mutations
+export const COMPLETE_SETUP = 'user/COMPLETE_SETUP'
 export const SET_STATUS = 'user/SET_STATUS'
 export const SEEKING_CHILD_CARE = 'user/SEEKING_CHILD_CARE'
 export const SUBSCRIBE = 'user/SUBSCRIBE'

@@ -1,10 +1,10 @@
 <template>
   <div class="step6">
     <v-layout column>
-      <h3>Tell us a little bit about yourself!</h3>
+      <h3 class="mb-2">Tell us a little bit about yourself!</h3>
       <v-form v-model="valid">
         <v-text-field
-          color="darkstormblue"
+          color="deepBlue"
           label="Name"
           :rules="nameRules"
           v-model="userData.name"
@@ -13,7 +13,7 @@
       </v-form>
       <v-btn
         class="step6__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(4)"
       >

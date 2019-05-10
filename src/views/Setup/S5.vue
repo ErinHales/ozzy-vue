@@ -1,10 +1,10 @@
 <template>
   <div class="step5">
     <v-layout column>
-      <h3>What type of child care provider?</h3>
+      <h3 class="mb-2">What type of child care provider?</h3>
       <v-form v-model="valid">
         <v-select
-          color="darkstormblue"
+          color="deepBlue"
           :items="careTypes"
           :rules="rules"
           v-model="response"
@@ -14,7 +14,7 @@
       </v-form>
       <v-btn
         class="step5__next"
-        color="darkstormblue"
+        color="deepBlue darken-1"
         dark
         @click="nextStep(5)"
       >

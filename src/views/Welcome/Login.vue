@@ -1,29 +1,29 @@
 <template>
-  <div class="login fade-in">
-    <v-form class="login__form my-5" v-model="valid" @submit.prevent="login">
+  <div class="login">
+    <v-form class="login__form fade-in my-5" v-model="valid" @submit.prevent="login">
       <v-text-field
         class="mb-5"
-        color="#fac8bf"
         type="text"
         :rules="emailRules"
         v-model="email"
         placeholder="Email"
         validate-on-blur
         autofocus
+        solo
       ></v-text-field>
       <v-text-field
         class="mb-4"
-        color="#fac8bf"
         append-icon="remove_red_eye"
         :type="type"
         :rules="passwordRules"
         v-model="password"
         placeholder="Password"
+        solo
         @click:append="showPassword"
       ></v-text-field>
       <v-layout justify-space-between>
         <h5 class="mt-3">Don't have an account? <router-link to="/signup" class="login__form__link">Sign Up</router-link></h5>
-        <v-btn type="submit" color="#fac8bf" class="login__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
+        <v-btn type="submit" color="orange" class="login__form__submit pl-4">LOG IN<i class="material-icons">keyboard_arrow_right</i></v-btn>
       </v-layout>
     </v-form>
   </div>
@@ -68,7 +68,12 @@ export default {
     },
     login () {
       if (this.valid) {
-        this.$router.push({ path: '/setup' })
+        // console.log(this.$store.state.user.hasFinishedSetup)
+        if (this.$store.state.user.hasFinishedSetup) {
+          this.$router.push({ path: '/feed' })
+        } else {
+          this.$router.push({ path: '/setup' })
+        }
       }
       // axios.get(`/api/user/${this.email}/${this.password}`).then(response => {
       //   if (response.data === 'Username does not exist') {
@@ -108,10 +113,16 @@ export default {
   animation fadeIn 0.5s forwards 1s
 
 .login
+  height 100vh
   display flex
   justify-content center
   align-items center
-  height 100vh
+  background-color #CBEAEB
+  &__card
+    display flex
+    justify-content center
+    width 60%
+    max-width 700px
   &__form
     width 90%
     max-width 400px

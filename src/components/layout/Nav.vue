@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-toolbar color="peach">
+    <v-toolbar color="deepBlue" fixed dark>
       <v-toolbar-side-icon></v-toolbar-side-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
+      <!-- <v-toolbar-title>Title</v-toolbar-title> -->
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat>Link One</v-btn>
