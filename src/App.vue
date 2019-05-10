@@ -31,4 +31,7 @@ $babyBlue = #CBEAEB
 /* * * * *  APP STYLE CLASSES * * * * */
 .link
   text-decoration none
+
+button
+  outline none
 </style>

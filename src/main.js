@@ -25,7 +25,8 @@ Vue.use(Vuetify, {
     black: '#000000',
     white: '#FFFFFF',
 
-    pinkLemonade: '#EAD5E1',
+    // pinkLemonade: '#EAD5E1',
+    pinkLemonade: '#FED3C0',
     mintGreen: '#AEE0C5',
     babyBlue: '#CBEAEB',
     // orange: '#FFB100',

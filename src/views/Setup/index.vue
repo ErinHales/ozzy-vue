@@ -112,7 +112,8 @@ export default {
   // background-color rgba(103,153,163,0.5)
   // background-color #AEE0C5
   // background-color #FCD5D9
-  background-color #FBDBD7
+  background-color rgba(254, 211, 192, 0.7)
+  // background-color #F3F3F0
   &__header
     background-color #6799A3
     // background-color #9cc9b1

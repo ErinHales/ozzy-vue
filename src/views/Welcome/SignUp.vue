@@ -3,7 +3,7 @@
     <v-form class="signup__form fade-in my-5" v-model="valid" @submit.prevent="signup">
       <v-text-field
         class="my-3"
-        color="#fac8bf"
+        color="deepBlue"
         type="text"
         :rules="nameRules"
         v-model="userData.name"
@@ -14,7 +14,7 @@
       ></v-text-field>
       <v-text-field
         class="my-3"
-        color="#fac8bf"
+        color="deepBlue"
         type="text"
         :rules="emailRules"
         v-model="userData.email"
@@ -24,7 +24,7 @@
       ></v-text-field>
       <v-text-field
         class="my-3"
-        color="#fac8bf"
+        color="deepBlue"
         append-icon="remove_red_eye"
         :type="passwordType.first"
         :rules="passwordRules"
@@ -35,7 +35,7 @@
         @click:append="showPasswords('first')"
       ></v-text-field>
       <v-text-field
-        color="#fac8bf"
+        color="deepBlue"
         append-icon="remove_red_eye"
         :type="passwordType.second"
         :rules="confirmPasswordRules"

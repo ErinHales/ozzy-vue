@@ -3,6 +3,7 @@
     <v-form class="login__form fade-in my-5" v-model="valid" @submit.prevent="login">
       <v-text-field
         class="mb-5"
+        color="deepBlue"
         type="text"
         :rules="emailRules"
         v-model="email"
@@ -13,6 +14,7 @@
       ></v-text-field>
       <v-text-field
         class="mb-4"
+        color="deepBlue"
         append-icon="remove_red_eye"
         :type="type"
         :rules="passwordRules"
