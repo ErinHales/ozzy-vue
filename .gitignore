@@ -15,5 +15,3 @@ yarn-error.log*
 
 .env
 /.env
-
-./config/dev.env.js

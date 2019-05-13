@@ -3,6 +3,9 @@
     <v-layout column align-center class="feed__layout">
       <Post v-for="(post, i) in posts" :key="i" :post="post"></Post>
     </v-layout>
+    <v-btn fab dark color="mintGreen darken-1" class="feed__write-post">
+      <router-link to="/post" class="link"><v-icon dark>edit</v-icon></router-link>
+    </v-btn>
   </div>
 </template>
 
@@ -43,4 +46,8 @@ export default {
 .feed
   padding-top 64px
   background-color #F3F3F0
+  &__write-post
+    position fixed
+    bottom 15px
+    right 15px
 </style>

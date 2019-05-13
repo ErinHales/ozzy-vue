@@ -1,11 +1,10 @@
 <template>
-  <div>
-    this is the map
+  <div class="map">
     <GmapMap
       :center="{lat:position.lat, lng:position.long}"
       :zoom="7"
       map-type-id="terrain"
-      style="width: 500px; height: 300px"
+      style="width: 100%; height: 50vh; max-height: 500px; min-height: 400px;"
     >
       <!-- <GmapMarker
         :key="index"
@@ -50,6 +49,7 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+.map
+  background-color gray
 </style>

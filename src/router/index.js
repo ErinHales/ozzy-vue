@@ -7,6 +7,7 @@ import Loader from '../components/app/loader'
 import Home from '../views/Home/Home.main'
 import Feed from '../views/Home/Feed/Feed.main'
 import ChildCare from '../views/Home/ChildCare/ChildCare.main'
+import Post from '../views/Home/Post/Post.main'
 
 Vue.use(Router)
 
@@ -38,7 +39,8 @@ export default new Router({
       component: Home,
       children: [
         { path: '/feed', component: Feed },
-        { path: '/findchildcare', component: ChildCare }
+        { path: '/findchildcare', component: ChildCare },
+        { path: '/post', component: Post }
       ]
     }
   ]

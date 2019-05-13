@@ -1,23 +1,22 @@
 <template>
-  <div class="step4">
-    <v-layout column>
-      <div className="parentQ3">
-      <h3 class="mb-2">Upload Your Picture</h3>
-      <Vue-Dropzone :options="dropzoneOptions" id="myDropzone" class="step4__dropzone"></Vue-Dropzone>
-      </div>
-      <v-btn
-        :loading="loading"
-        :disabled="loading"
-        class="step4__next"
-        color="deepBlue darken-1"
-        dark
-        @click="nextStep(3)"
-      >
-        {{ url ? 'Next' : 'Skip' }}
-      </v-btn>
-
-      <v-btn flat @click="nextStep(1)" class="step4__back">Back</v-btn>
-    </v-layout>
+  <div class="post">
+    <v-card class="post__content">
+      <v-layout justify-space-between>
+        <v-btn color="deepBlue">Post</v-btn>
+        <v-select
+          :items="categories"
+          v-model="category"
+          color="deepBlue"
+          class="post__category"
+          solo
+        ></v-select>
+      </v-layout>
+      <v-textarea
+        box
+        color="deepBlue"
+      ></v-textarea>
+      <Vue-Dropzone :options="dropzoneOptions" id="postDropzone" class="post__dropzone"></Vue-Dropzone>
+    </v-card>
   </div>
 </template>
 
@@ -27,23 +26,17 @@ import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import axios from 'axios'
 
 export default {
-  name: 'S4',
+  name: 'Post',
 
   components: {
     VueDropzone: vue2Dropzone
   },
 
-  // mounted () {
-  //   console.log(process.env.VUE_APP_CLOUD_NAME)
-  //   // axios.get('/api/test', (res) => {
-  //   //   console.log(res)
-  //   // })
-  // },
-
   data: function () {
     const vm = this
     return {
-      loading: false,
+      categories: ['All', 'Just Moms', 'Just Dads', 'Expecting', 'Babies', 'Toddlers', 'Elementary', 'Pre-Teen', 'Teen'],
+      category: 'All',
       url: '',
       dropzoneOptions: {
         url: 'https://httpbin.org/post',
@@ -87,34 +80,31 @@ export default {
         console.log('File uploaded successfully to Cloudinary', fileURL)
         this.url = fileURL
       })
-    },
-    nextStep (num) {
-      this.$store.dispatch('user/setProfile', this.url)
-      console.log(this.$store.state.user.profilePicture)
-      this.$emit('move', num)
     }
   }
 }
 </script>
 
 <style scoped lang="stylus">
-
-.step4
+.post
   display flex
-  align-items center
-  height calc(100vh - 100px)
-  width 90%
-  max-width 500px
-  margin auto
+  justify-content center
+  margin-top 64px
+  min-height calc(100vh - 64px)
+  background-color #F3F3F0
+  &__content
+    width 100%
+    max-width 700px
+    margin 20px
+    padding 10px
+  &__category
+    max-width 250px
   &__dropzone
     display flex
     flex-direction column
     align-items center
+    max-width 200px
     margin 20px 0
     background-color transparent
-    border 2px dotted white
-  &__next,
-  &__back
-    width 200px
-    margin 5px auto
+    border 2px dotted black
 </style>
