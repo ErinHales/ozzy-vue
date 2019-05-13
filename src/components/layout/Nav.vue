@@ -5,9 +5,9 @@
       <!-- <v-toolbar-title>Title</v-toolbar-title> -->
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat><router-link to="/feed" class="nav__link">News Feed</router-link></v-btn>
-        <v-btn flat><router-link to="/findchildcare" class="nav__link">Care Providers</router-link></v-btn>
-        <!-- <v-btn flat></v-btn> -->
+        <router-link to="/feed" class="nav__link link"><v-btn flat>News Feed</v-btn></router-link>
+        <router-link to="/findchildcare" class="nav__link link"><v-btn flat>Care Providers</v-btn></router-link>
+        <router-link to="/messages" class="nav__link link"><v-btn flat>Messages</v-btn></router-link>
       </v-toolbar-items>
     </v-toolbar>
   </div>
@@ -23,6 +23,5 @@ export default {
 .nav
   z-index 10
   &__link
-    color white
-    text-decoration none
+    height 100%
 </style>
