@@ -1,5 +1,5 @@
 <template>
-  <div class="feed">
+  <div class="feed view-container">
     <v-layout column align-center class="feed__layout">
       <Post v-for="(post, i) in posts" :key="i" :post="post"></Post>
     </v-layout>
@@ -44,8 +44,6 @@ export default {
 
 <style scoped lang="stylus">
 .feed
-  padding-top 64px
-  background-color #F3F3F0
   &__write-post
     position fixed
     bottom 15px

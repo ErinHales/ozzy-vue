@@ -9,7 +9,8 @@
       </v-layout>
       <v-layout align-center class="actions__action">
         <button @click="comment = !comment">
-          <img src="@/assets/Comment.png" alt="Comment" class="actions__action__icon">
+          <!-- <img src="@/assets/Comment.png" alt="Comment" class="actions__action__icon"> -->
+          <i class="material-icons actions__action__icon mr-3">insert_comment</i>
         </button>
         <p class="ma-0">{{ numComments }}</p>
       </v-layout>
@@ -42,13 +43,13 @@ export default {
 <style scoped lang="stylus">
 .actions
   &__section
-    width 200px
+    width 150px
     margin-bottom 10px
   &__action
-    margin-right 40px
+    margin-right 20px
     &__icon
-      width 30px
-      height 30px
+      width 20px
+      height 20px
       margin 10px
   &__comment
     &__avatar

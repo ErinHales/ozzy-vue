@@ -1,5 +1,5 @@
 <template>
-  <div class="post">
+  <div class="post view-container">
     <v-card class="post__content">
       <v-layout justify-space-between>
         <v-btn color="deepBlue">Post</v-btn>
@@ -88,10 +88,8 @@ export default {
 <style scoped lang="stylus">
 .post
   display flex
-  justify-content center
-  margin-top 64px
-  min-height calc(100vh - 64px)
-  background-color #F3F3F0
+  flex-direction column
+  align-items center
   &__content
     width 100%
     max-width 700px

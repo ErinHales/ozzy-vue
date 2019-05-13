@@ -1,9 +1,11 @@
 <template>
   <div>
     <v-card class="provider">
-      <v-btn fab dark color="pinkLemonade darken-1" class="provider__message">
-        <v-icon dark>message</v-icon>
-      </v-btn>
+      <router-link to="/message">
+        <v-btn fab dark color="pinkLemonade darken-1" class="provider__message">
+          <v-icon dark>message</v-icon>
+        </v-btn>
+      </router-link>
       <v-img :src="img"></v-img>
       <v-layout justify-space-between align-center class="ma-3">
         <h2>{{ name }}</h2>

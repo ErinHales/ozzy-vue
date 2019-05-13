@@ -1,5 +1,5 @@
 <template>
-  <div class="care">
+  <div class="care view-container">
     <Map></Map>
     <v-layout column class="care__providers">
       <Provider v-for="(provider, i) in providers" :key="i" :img="provider.img" :name="provider.name" :rating="provider.rating" :about="provider.about"></Provider>
@@ -43,8 +43,6 @@ export default {
 
 <style scoped lang="stylus">
 .care
-  margin-top 64px
-  background-color #F3F3F0
   &__providers
     width 100%
     max-width 700px

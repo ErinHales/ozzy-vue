@@ -29,6 +29,10 @@ $babyBlue = #CBEAEB
   opacity 0
 
 /* * * * *  APP STYLE CLASSES * * * * */
+.view-container
+  padding-top 64px
+  background-color #F3F3F0
+  min-height calc(100vh - 64px)
 .link
   text-decoration none
   color white
